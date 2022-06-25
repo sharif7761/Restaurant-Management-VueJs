@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
     name: 'SignUp',
     data(){
@@ -19,8 +20,17 @@ export default {
         }
     },
     methods: {
-        signUp(){
-            console.log(this.name);
+        async signUp(){
+            const result = await axios.post("http://localhost:3000/users",{
+                name: this.name,
+                email: this.email,
+                password: this.password
+            })
+
+            if(result.status===201){
+                alert("Sign Up is done")
+                localStorage.setItem("user-info", JSON.stringify(result.data))
+            }
         }
     }
 }
