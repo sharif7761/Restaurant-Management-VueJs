@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         async signUp(){
-            const result = await axios.post("http://localhost:3000/users",{
+            const result = await axios.post("http://localhost:3000/users", {
                 name: this.name,
                 email: this.email,
                 password: this.password
@@ -30,6 +30,7 @@ export default {
             if(result.status===201){
                 alert("Sign Up is done")
                 localStorage.setItem("user-info", JSON.stringify(result.data))
+                 this.$router.push({name: "Home"})
             }
         }
     }
