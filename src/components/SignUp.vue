@@ -33,6 +33,12 @@ export default {
                  this.$router.push({name: "Home"})
             }
         }
+    },
+    mounted() {
+        const user = localStorage.getItem("user-info");
+        if(user){
+            this.$router.push({name: "Home"})
+        }
     }
 }
 </script>
