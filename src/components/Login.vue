@@ -1,21 +1,19 @@
 <template>
-    <h1>Sign Up</h1>
-    <div class="register-container">
-        <input type="text"  v-model="name" placeholder="Enter Name"/>
+    <h1>Login Page</h1>
+    <div class="login-container">
         <input type="email" v-model="email" placeholder="Enter Email"/>
         <input type="password" v-model="password" placeholder="Enter Password"/>
-        <button v-on:click="signUp">Register</button>
-        <router-link to="/login">Login</router-link>
+        <button v-on:click="signUp">Login</button>
+        <router-link to="/sign-up">Sign Up</router-link>
     </div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-    name: 'SignUp',
+    name: 'LogIn',
     data(){
         return {
-            name: "",
             email: "",
             password: ""
         }
@@ -23,13 +21,12 @@ export default {
     methods: {
         async signUp(){
             const result = await axios.post("http://localhost:3000/users", {
-                name: this.name,
                 email: this.email,
                 password: this.password
             })
 
             if(result.status===201){
-                alert("Sign Up is done")
+                alert("Login is done")
                 localStorage.setItem("user-info", JSON.stringify(result.data))
                  this.$router.push({name: "Home"})
             }
@@ -44,7 +41,7 @@ export default {
 }
 </script>
 <style scoped>
-    .register-container input, button{
+    .login-container input, button{
         display: block;
     }
 </style>
