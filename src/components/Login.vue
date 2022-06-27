@@ -3,7 +3,7 @@
     <div class="login-container">
         <input type="email" v-model="email" placeholder="Enter Email"/>
         <input type="password" v-model="password" placeholder="Enter Password"/>
-        <button v-on:click="signUp">Login</button>
+        <button v-on:click="login">Login</button>
         <router-link to="/sign-up">Sign Up</router-link>
     </div>
 </template>
@@ -19,16 +19,15 @@ export default {
         }
     },
     methods: {
-        async signUp(){
-            const result = await axios.post("http://localhost:3000/users", {
-                email: this.email,
-                password: this.password
-            })
-
-            if(result.status===201){
+        async login(){
+            const result = await axios.get(`http://localhost:3000/users?email=${this.email}&password=${this.password}`)
+            
+            if(result.status===200 && result.data.length>0){
                 alert("Login is done")
                 localStorage.setItem("user-info", JSON.stringify(result.data))
-                 this.$router.push({name: "Home"})
+                this.$router.push({name: "Home"})
+            } else {
+                alert("Wrong credentials")
             }
         }
     },
