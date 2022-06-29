@@ -1,27 +1,49 @@
 <template>
 <HeaderComp />
-    <h1>Hello {{ name }}!! Welcome to Home Page</h1>
+  <h1>Hello {{ name }}!! Welcome to Home Page</h1>
+  <table>
+    <thead>
+        <tr>
+        <th >Name</th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr v-for="item in restuarants" :key="item.id">
+            <td>{{ item.name}}</td>
+            <td>{{ item.contact}}</td>
+            <td>{{ item.address}}</td>
+        </tr>
+        </tbody>
+    </table>
 </template>
 
 <script>
+import axios from 'axios';
 import HeaderComp from "./Header.vue"
 export default {
     name: 'HomePage',
     data(){
         return{
-            name: ''
+            name: '',
+            restuarants: [],
         }
     },
     components: {
         HeaderComp
     },
-    mounted() {
+    async mounted() {
         const user = localStorage.getItem("user-info");
-        console.log(JSON.parse(user)[0].name);
+        
         this.name = JSON.parse(user)[0].name;
         if(!user){
             this.$router.push({name: "SignUp"})
         }
+        let result = await axios.get("http://localhost:3000/restuarants")
+        console.log(result)
+        this.restuarants = result.data;
     }
 }
 </script>
