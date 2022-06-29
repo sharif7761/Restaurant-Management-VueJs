@@ -1,6 +1,6 @@
 <template>
     <h1>Login Page</h1>
-    <div class="login-container">
+    <div class="input-container">
         <input type="email" v-model="email" placeholder="Enter Email"/>
         <input type="password" v-model="password" placeholder="Enter Password"/>
         <button v-on:click="login">Login</button>
@@ -39,8 +39,8 @@ export default {
     }
 }
 </script>
-<style scoped>
-    .login-container input, button{
+<style>
+    .input-container input, button{
         display: block;
     }
 </style>
