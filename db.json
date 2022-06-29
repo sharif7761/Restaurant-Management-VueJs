@@ -30,5 +30,13 @@
       "password": "12345678",
       "id": 5
     }
-  ]
+  ], 
+  "restuarants": [
+  {
+    "name": "test",
+    "contact": "01888",
+    "address": "Florida",
+    "id": 5
+  }
+]
 }
