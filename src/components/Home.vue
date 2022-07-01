@@ -15,6 +15,9 @@
             <td>{{ item.name}}</td>
             <td>{{ item.contact}}</td>
             <td>{{ item.address}}</td>
+            <td>
+                <router-link :to="'/show/'+item.id">Update</router-link>
+            </td>
         </tr>
         </tbody>
     </table>
@@ -42,7 +45,6 @@ export default {
             this.$router.push({name: "SignUp"})
         }
         let result = await axios.get("http://localhost:3000/restuarants")
-        console.log(result)
         this.restuarants = result.data;
     }
 }

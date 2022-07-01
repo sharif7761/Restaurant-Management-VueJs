@@ -29,7 +29,7 @@ const routes = [
     {
         name: 'ShowRestuarant',
         component: ShowRestuarant,
-        path: "/show"
+        path: "/show/:id"
     }
 ]
 
