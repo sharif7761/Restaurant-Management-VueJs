@@ -1,6 +1,6 @@
 <template>
 <HeaderComp />
-    <h1>Add Restuarant Page</h1>
+    <h1>Add Restaurants Page</h1>
     <div class="input-container">
         <input type="text" v-model="name" placeholder="Enter Name"/>
         <input type="text" v-model="contact" placeholder="Enter Contact Number"/>
@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         async saveRestuarant(){
-            const result = await axios.post("http://localhost:3000/restuarants", {
+            const result = await axios.post("http://localhost:3000/restaurants", {
                 name: this.name,
                 contact: this.contact,
                 address: this.address

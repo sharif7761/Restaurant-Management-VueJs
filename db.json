@@ -31,7 +31,7 @@
       "id": 5
     }
   ],
-  "restuarants": [
+  "restaurants": [
     {
       "name": "test",
       "contact": "01888",
@@ -39,9 +39,9 @@
       "id": 1
     },
     {
-      "name": "sad",
-      "contact": "sad",
-      "address": "asd",
+      "name": "sad22",
+      "contact": "sad2",
+      "address": "asd2",
       "id": 2
     }
   ]

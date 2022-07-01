@@ -44,7 +44,7 @@ export default {
         if(!user){
             this.$router.push({name: "SignUp"})
         }
-        let result = await axios.get("http://localhost:3000/restuarants")
+        let result = await axios.get("http://localhost:3000/restaurants")
         this.restuarants = result.data;
     }
 }
